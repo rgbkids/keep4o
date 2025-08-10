@@ -8,11 +8,32 @@ import {
   IconGitHub,
 } from '@/components/ui/icons'
 import { UserMenu } from '@/components/user-menu'
+import { SidebarMobile } from './sidebar-mobile'
+import { SidebarToggle } from './sidebar-toggle'
+import { ChatHistory } from './chat-history'
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
 async function UserOrLogin() {
   const session = await auth()
   return (
     <>
+      {session?.user ? (
+        <>
+          <SidebarMobile>
+            <ChatHistory userId={session.user.id} />
+          </SidebarMobile>
+          <Tooltip delayDuration={200}>
+            <TooltipTrigger asChild>
+              <SidebarToggle />
+            </TooltipTrigger>
+            <TooltipContent>
+              履歴
+            </TooltipContent>
+          </Tooltip>
+        </>
+      ) : (
+        <></>
+      )}
       <div className="flex items-center">
         {session?.user ? (
           <UserMenu user={session.user} />

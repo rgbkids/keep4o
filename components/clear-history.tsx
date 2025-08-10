@@ -54,16 +54,19 @@ export function ClearHistory({
             disabled={isPending}
             onClick={event => {
               event.preventDefault()
-              startTransition(() => {
-                clearChats().then(result => {
-                  if (result && 'error' in result) {
-                    toast.error(result.error)
-                    return
-                  }
+              startTransition(async () => {
+                const result = await clearChats()
 
-                  setOpen(false)
-                  router.push('/')
-                })
+                if (result && 'error' in result) {
+                  toast.error(result.error)
+                  return
+                }
+
+                setOpen(false)
+
+                router.refresh()
+                router.push('/')
+                toast.success('Chat deleted')
               })
             }}
           >

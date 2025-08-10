@@ -1,7 +1,7 @@
 import { UseChatHelpers } from 'ai/react'
 
 import { Button } from '@/components/ui/button'
-import { IconUser } from '@/components/ui/icons'
+import { IconOpenAI } from '@/components/ui/icons'
 
 const exampleMessages = [
   {
@@ -26,8 +26,8 @@ export function EmptyScreen({ setInput, append }: Pick<UseChatHelpers, 'setInput
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 py-8">
       <div className="text-center mb-8">
-        <div className="p-8 rounded-full flex items-center justify-center">
-          <IconUser />
+        <div className="p-4 rounded-full flex items-center justify-center">
+          <IconOpenAI className='size-12' />
         </div>
         
         <h1 className="text-2xl font-medium mb-12">
@@ -41,7 +41,7 @@ export function EmptyScreen({ setInput, append }: Pick<UseChatHelpers, 'setInput
             <Button
               key={index}
               variant="ghost"
-              className="h-auto p-4 text-left justify-start rounded-lg border border-gray-600/50 hover:border-gray-500 transition-all duration-200"
+              className="h-auto p-4 text-left justify-start rounded-lg transition-all duration-200 border border-input hover:bg-accent hover:text-accent-foreground"
               onClick={() => {
                 const fullMessage = `${message.heading} ${message.message}`
                 append({ role: 'user', content: fullMessage })

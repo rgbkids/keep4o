@@ -1,5 +1,4 @@
 import { auth } from '@/auth'
-import { ExternalLink } from '@/components/external-link'
 import { FooterText } from '@/components/footer'
 import { LoginButton } from '@/components/login-button'
 import { redirect } from 'next/navigation'
@@ -17,7 +16,7 @@ export default async function SignInPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-6">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent mb-2">
-              <ExternalLink href="https://x.com/search?q=%23keep4o">#keep4o</ExternalLink>
+              #keep4o
             </h1>
 
             <p className="text-slate-600 dark:text-slate-400 text-lg">
