@@ -36,5 +36,5 @@ yarn-error.log*
 .vercel
 .vscode
 .env*.local
-.claude
+.claude/*.*
 .serena
